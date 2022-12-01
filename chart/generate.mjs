@@ -1,10 +1,9 @@
 import fs from "fs"
-import _ from "lodash"
 import path from "path"
 import { fileURLToPath } from "url"
 import screenshot from "./screenshot.mjs"
+import { pipe, takeWhile, dropWhile, filter, length, range } from "ramda"
 
-const { takeWhile } = _
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
@@ -27,11 +26,12 @@ const loc = (day) => {
         .split("\n")
     : ["x"]
 
-  return (
-    takeWhile(lines, (line) => !line.startsWith("run({")).filter(
-      (line) => /^\s*$/.test(line) === false,
-    ).length - 1
-  )
+  return pipe(
+    dropWhile((line) => line === ""),
+    takeWhile((line) => !line.startsWith("run({")),
+    filter((line) => /^\s*$/.test(line) === false),
+    length,
+  )(lines)
 }
 
 const time1 = (day) => aocdata.days[day - 1]?.part1?.time ?? 0
@@ -41,24 +41,24 @@ await screenshot(
   {
     data: {
       columns: [
-        ["time1", ..._.range(1, 25).map((day) => time1(day) * 1000)],
-        ["time2", ..._.range(1, 25).map((day) => time2(day) * 1000)],
-        ["loc", ..._.range(1, 25).map((day) => loc(day))],
+        ["part1", 0, ...range(1, 25).map((day) => time1(day))],
+        ["part2", 0, ...range(1, 25).map((day) => time2(day))],
+        ["loc", 0, ...range(1, 25).map((day) => loc(day))],
       ],
       types: {
         loc: "area-spline",
-        time1: "bar",
-        time2: "bar",
+        part1: "bar",
+        part2: "bar",
       },
       colors: {
         loc: "#ff0000",
-        time1: "#9999cc",
-        time2: "#ffff66",
+        part1: "#9999cc",
+        part2: "#ffff66",
       },
       axes: {
         loc: "y",
-        time1: "y2",
-        time2: "y2",
+        part1: "y2",
+        part2: "y2",
       },
     },
     axis: {
@@ -66,7 +66,7 @@ await screenshot(
         label: { text: "Day", position: "outer-center" },
       },
       y: {
-        label: "Lines",
+        label: "Lines of code",
       },
       y2: {
         show: true,
