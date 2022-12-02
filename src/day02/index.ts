@@ -1,6 +1,6 @@
 import run from "aocrunner"
 import { map, pipe, sum } from "ramda"
-import { log, splitLines, splitPair, toCharCode } from "../utils/index.js"
+import { splitLines, splitPair, toCharCode } from "../utils/index.js"
 
 const normalize = (char: string) =>
   toCharCode(char) - toCharCode(char >= "X" ? "X" : "A")
