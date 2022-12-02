@@ -31,12 +31,12 @@ export default async function screenshot(options = {}, path = "chart.png") {
   await page.evaluate((options) => {
     bb.generate(options)
   }, options)
-  await page.evaluate(() => {
-    const bars = document.querySelector(".bb-chart-bars")
-    const area = document.querySelector(".bb-chart-lines")
+  // await page.evaluate(() => {
+  //   const bars = document.querySelector(".bb-chart-bars")
+  //   const area = document.querySelector(".bb-chart-lines")
 
-    bars.parentNode.insertBefore(area, bars)
-  })
+  //   bars.parentNode.insertBefore(area, bars)
+  // })
 
   const content = await page.$(".bb")
 

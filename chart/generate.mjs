@@ -10,17 +10,11 @@ const __dirname = path.dirname(__filename)
 import aocdata from "../.aocrunner.json" assert { type: "json" }
 
 const loc = (day) => {
-  const sourceFile = path.join(
-    __dirname,
-    `../src/day${String(day).padStart(2, "0")}/index.ts`,
-  )
+  const sourceFile = path.join(__dirname, `../src/day${String(day).padStart(2, "0")}/index.ts`)
   const lines = fs.existsSync(sourceFile)
     ? fs
         .readFileSync(
-          path.join(
-            path.dirname(__filename),
-            `../src/day${String(day).padStart(2, "0")}/index.ts`,
-          ),
+          path.join(path.dirname(__filename), `../src/day${String(day).padStart(2, "0")}/index.ts`),
           "utf8",
         )
         .split("\n")
@@ -46,7 +40,7 @@ await screenshot(
         ["loc", 0, ...range(1, 25).map((day) => loc(day))],
       ],
       types: {
-        loc: "area-spline",
+        loc: "area",
         part1: "bar",
         part2: "bar",
       },
