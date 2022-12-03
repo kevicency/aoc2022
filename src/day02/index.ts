@@ -45,6 +45,7 @@ run({
     ],
     solution: part1,
   },
+
   part2: {
     tests: [
       {
@@ -59,5 +60,5 @@ run({
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: true,
+  onlyTests: false,
 })
