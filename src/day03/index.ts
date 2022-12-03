@@ -2,7 +2,6 @@ import run from "aocrunner"
 import {
   apply,
   chain,
-  compose,
   converge,
   divide,
   head,
@@ -10,11 +9,13 @@ import {
   intersection,
   length,
   map,
+  o,
   pipe,
   reduce,
   splitAt,
   splitEvery,
   sum,
+  tail,
   __,
 } from "ramda"
 import { splitLines, toCharCode } from "../utils/index.js"
@@ -25,19 +26,20 @@ const toPriority = (char: string) => toCharCode(char) - (char >= "a" ? 96 : 38)
 
 const part1 = (rawInput: string) =>
   pipe(
-    map<string, [string, string]>(converge(splitAt, [compose(divide(__, 2), length), identity])),
+    map(converge(splitAt, [o(divide(__, 2), length), identity])),
     chain(apply(intersection)),
     map(toPriority),
     sum,
   )(parseInput(rawInput))
 
-const part2 = (rawInput: string) =>
-  pipe(
+const part2 = (rawInput: string) => {
+  return pipe(
     splitEvery(3),
-    chain((chunk) => reduce(intersection, head(chunk), chunk)),
+    chain(converge(reduce<string[], string[]>(intersection), [head, tail])),
     map(toPriority),
     sum,
   )(parseInput(rawInput))
+}
 
 run({
   part1: {
@@ -73,5 +75,5 @@ run({
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: false,
+  onlyTests: true,
 })

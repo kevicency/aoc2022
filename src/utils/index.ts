@@ -1,4 +1,4 @@
-import { split, tap } from "ramda"
+import { converge, curry, head, nthArg, reduce, split, tail, tap } from "ramda"
 
 export const log = tap(console.log)
 export const splitLines = split("\n")
