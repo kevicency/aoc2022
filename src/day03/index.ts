@@ -21,27 +21,23 @@ import { splitLines, toCharCode } from "../utils/index.js"
 
 const parseInput = (rawInput: string) => splitLines(rawInput)
 
-const toPriority = (charCode: number) => charCode - (charCode >= toCharCode("a") ? 96 : 38)
+const toPriority = (char: string) => toCharCode(char) - (char >= "a" ? 96 : 38)
 
-const part1 = (rawInput: string) => {
-  return pipe(
+const part1 = (rawInput: string) =>
+  pipe(
     map<string, [string, string]>(converge(splitAt, [compose(divide(__, 2), length), identity])),
     chain(apply(intersection)),
-    map(toCharCode),
     map(toPriority),
     sum,
   )(parseInput(rawInput))
-}
 
-const part2 = (rawInput: string) => {
-  return pipe(
+const part2 = (rawInput: string) =>
+  pipe(
     splitEvery(3),
     chain((chunk) => reduce(intersection, head(chunk), chunk)),
-    map(toCharCode),
     map(toPriority),
     sum,
   )(parseInput(rawInput))
-}
 
 run({
   part1: {

@@ -21,7 +21,7 @@ const loc = (day) => {
     : ["x"]
 
   return pipe(
-    dropWhile((line) => line === ""),
+    dropWhile((line) => line !== ""),
     takeWhile((line) => !line.startsWith("run({")),
     filter((line) => /^\s*$/.test(line) === false),
     length,
