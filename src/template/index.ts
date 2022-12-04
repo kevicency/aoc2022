@@ -1,19 +1,12 @@
 import run from "aocrunner"
+import { pipe } from "ramda"
 import { log } from "../utils/index.js"
 
 const parseInput = (rawInput: string) => rawInput
 
-const part1 = (rawInput: string) => {
-  const input = parseInput(rawInput)
+const part1 = pipe(parseInput, log)
 
-  return
-}
-
-const part2 = (rawInput: string) => {
-  const input = parseInput(rawInput)
-
-  return
-}
+const part2 = pipe(parseInput, log)
 
 run({
   part1: {
