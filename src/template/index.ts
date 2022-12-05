@@ -1,12 +1,12 @@
 import run from "aocrunner"
 import { pipe } from "ramda"
-import { log } from "../utils/index.js"
+import { log, todo } from "../utils/index.js"
 
 const parseInput = (rawInput: string) => rawInput
 
 const part1 = pipe(parseInput, log)
 
-const part2 = pipe(parseInput, log)
+const part2 = pipe(parseInput, todo)
 
 run({
   part1: {
@@ -28,5 +28,5 @@ run({
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: false,
+  onlyTests: true,
 })
