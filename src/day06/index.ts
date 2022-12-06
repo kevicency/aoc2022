@@ -1,18 +1,18 @@
 import run from "aocrunner"
-import { pair, pipe, reduce, reduced, takeLast, uniq } from "ramda"
+import { flip, pair, pipe, reduce, reduced, split, takeLast, uniq } from "ramda"
 import { mapIndexed } from "../utils/index.js"
 
-const parseInput = (rawInput: string) => rawInput.split("")
+const parseInput = pipe(split(""), mapIndexed(flip(pair)))
 
 const findMarker =
   (length: number) =>
-  (acc: string[], [char, idx]: [string, number]) => {
+  (acc: [string[]], [idx, char]: [number, string]) => {
     const next = takeLast(length, [...acc, char])
     return uniq(next).length === length ? reduced(idx + 1) : next
   }
 
-const part1 = pipe(parseInput, mapIndexed(pair), reduce(findMarker(4), []))
-const part2 = pipe(parseInput, mapIndexed(pair), reduce(findMarker(14), []))
+const part1 = pipe(parseInput, reduce(findMarker(4), []))
+const part2 = pipe(parseInput, reduce(findMarker(14), []))
 
 run({
   part1: {
