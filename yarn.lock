@@ -112,16 +112,15 @@ anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-aocrunner@^1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/aocrunner/-/aocrunner-1.9.1.tgz#94b1efc915af1a6b283e579adbe6a7cdfd8282ce"
-  integrity sha512-ltOe5zx40k8fxmP7YiV372JXtqxHrxoqPMKnszUFeT8wMgRRJ+ntJhvMjAnbMWOqI/b0eVaHL1nM3OUZCoQapQ==
+aocrunner@^1.9.5:
+  version "1.9.5"
+  resolved "https://registry.yarnpkg.com/aocrunner/-/aocrunner-1.9.5.tgz#1790604bb8ad1b84691f4aecaf50d3b03bd3a222"
+  integrity sha512-iRl8taTr5ZswFkkm2595T0xx9oSrAxM2TPj4J/YoRktfqP8bZh9Tsa9siuhhCigLXkgggM3rk4SGrC5iSxaAdA==
   dependencies:
     chokidar "^3.5.3"
     common-tags "^1.8.2"
     dotenv "^16.0.3"
     esbuild "^0.15.16"
-    get-caller-file "^2.0.5"
     jsdom "^20.0.3"
     kleur "^4.1.5"
     node-fetch "^3.3.0"
@@ -584,11 +583,6 @@ fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
-
-get-caller-file@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz"
-  integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
 get-stream@^5.1.0:
   version "5.2.0"
