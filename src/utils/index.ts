@@ -1,6 +1,7 @@
-import { addIndex, converge, curry, head, map, nthArg, reduce, split, tail, tap } from "ramda"
+import { addIndex, map, split, tap } from "ramda"
 
 export const log = tap(console.log)
+export const logM = (msg?: string) => tap((...args: any[]) => console.log(msg, ...args))
 export const splitLines = split("\n")
 export const splitBlocks = split(/\n{2,}/g)
 export const toCharCode = (char: string) => char.charCodeAt(0)
