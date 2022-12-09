@@ -22,7 +22,8 @@
   "dependencies": {
     "@types/ramda": "^0.28.20",
     "puppeteer": "^19.3.0",
-    "ramda": "^0.28.0"
+    "ramda": "^0.28.0",
+    "ramda-adjunct": "^3.4.0"
   },
   "engines": {
     "node": ">=16.13.0"
