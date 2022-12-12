@@ -16,11 +16,13 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^16.11.6",
-    "aocrunner": "^1.9.5",
+    "aocrunner": "^1.9.6",
     "prettier": "^2.4.1"
   },
   "dependencies": {
+    "@types/lcm": "^0.0.0",
     "@types/ramda": "^0.28.20",
+    "lcm": "^0.0.3",
     "puppeteer": "^19.3.0",
     "ramda": "^0.28.0",
     "ramda-adjunct": "^3.4.0"
