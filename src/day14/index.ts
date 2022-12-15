@@ -27,6 +27,8 @@ const generateMap = (rows: string[][]) => {
     )
 }
 
+const parseInput = pipe(splitLines, map(split(" -> ")), generateMap)
+
 const simulateSand = curryRight(
   ({ blocked, maxY }: ReturnType<typeof generateMap>, hasFloor: boolean) => {
     const origin = [500, 0]
@@ -53,8 +55,6 @@ const simulateSand = curryRight(
     return blocked.size - size
   },
 )
-
-const parseInput = pipe(splitLines, map(split(" -> ")), generateMap)
 
 const part1 = pipe(parseInput, simulateSand(false))
 
