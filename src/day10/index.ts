@@ -34,7 +34,7 @@ async function part2(input: string): Promise<string> {
     [1, splitEvery(40, repeat(" ", 40 * 6))] as [number, string[][]],
   )
   console.log("Part 2:", "\n" + join("\n", map(join(""), crt)))
-  return "SEE CONSOLE"
+  return "PAPJCBHP"
 }
 
 run({
