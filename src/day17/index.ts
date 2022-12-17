@@ -129,17 +129,16 @@ const parseInput = (raw: string) => ({
 const simulate =
   (rocks: number) =>
   ({ jetStream, rockStream, blocked }: ReturnType<typeof parseInput>) => {
-    const cycleCanditates = new Map<string, { height: number; rock: number }[]>()
-    let cycle: { height: number; rock: number; dh: number; dr: number } | null = null
-    let rock: Rock
+    const cycleCanditates = new Map<string, { height: number; rockId: number }[]>()
+    let cycle: { height: number; rockId: number; dh: number; dr: number } | null = null
 
     while (true) {
-      rock = rockStream.next(blocked.height).value
+      const rock = rockStream.next(blocked.height).value
 
-      if (cycle && (rocks - rock.id) % cycle.dr === 0) {
+      if (rock.id === rocks) {
         break
       }
-      if (rock.id === rocks) {
+      if (cycle && (rocks - rock.id) % cycle.dr === 0) {
         break
       }
 
@@ -167,14 +166,14 @@ const simulate =
                 if (blocked.checkCycle(height - candidate.height, false)) {
                   cycle = {
                     height: height,
-                    rock: rock.id,
+                    rockId: rock.id,
                     dh: height - candidate.height,
-                    dr: rock.id - candidate.rock,
+                    dr: rock.id - candidate.rockId,
                   }
                   break
                 }
               }
-              cycleCanditates.set(cycleKey, [...canditates, { height, rock: rock.id }])
+              cycleCanditates.set(cycleKey, [...canditates, { height, rockId: rock.id }])
             }
 
             break
@@ -188,7 +187,7 @@ const simulate =
     }
 
     if (cycle) {
-      const remainingCycles = (rocks - rock.id) / cycle.dr
+      const remainingCycles = Math.floor((rocks - cycle.rockId) / cycle.dr)
       return blocked.height + cycle.dh * remainingCycles
     }
     return blocked.height
