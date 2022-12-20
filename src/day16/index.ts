@@ -67,9 +67,6 @@ const traverseGraph = (
     const current = backlog.pop()!
     const { label, remainingTime, totalFlow, valveMask } = current
 
-    if (isNaN(remainingTime)) {
-      throw new Error("remainingTime is NaN")
-    }
     const key = `${label}:${valveMask}:${totalFlow}:${remainingTime}`
 
     if (visited.has(key)) continue

@@ -21,8 +21,10 @@
   },
   "dependencies": {
     "@types/lcm": "^0.0.0",
+    "@types/lodash-es": "^4.17.6",
     "@types/ramda": "^0.28.20",
     "lcm": "^0.0.3",
+    "lodash-es": "^4.17.21",
     "puppeteer": "^19.3.0",
     "ramda": "^0.28.0",
     "ramda-adjunct": "^3.4.0"
