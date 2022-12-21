@@ -10,14 +10,9 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "alwaysStrict": false
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "src/**/*.test.ts",
-    "src/**/*.temp.ts"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.temp.ts"]
 }

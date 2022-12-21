@@ -1,9 +1,16 @@
 import run from "aocrunner"
 import { entries } from "lodash-es"
-import { map, pipe, sum } from "ramda"
+import { map, pipe, sum, uniq } from "ramda"
 import { log, splitLines, todo } from "../utils/index.js"
 
 const parseInput = pipe(splitLines, map(Number))
+
+const foo = (xs: number[]) => {
+  if (uniq(xs).length !== xs.length) {
+    throw new Error("Duplicate")
+  }
+  return xs
+}
 
 const mix =
   (times = 1) =>
@@ -27,7 +34,7 @@ const coords = (xs: number[]) =>
     return xs[(zi + i) % xs.length]
   })
 
-const part1 = pipe(parseInput, mix(), coords, sum)
+const part1 = pipe(parseInput, foo, mix(), coords, sum)
 
 const part2 = pipe(
   parseInput,
@@ -73,5 +80,5 @@ run({
     solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: true,
+  onlyTests: false,
 })

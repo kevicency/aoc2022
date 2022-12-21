@@ -38,6 +38,11 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
+"@types/algebra.js@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@types/algebra.js/-/algebra.js-0.2.2.tgz#dd0bd98d5a94f502266955547bd83668bf97da8e"
+  integrity sha512-6Jau6mqKC+3gCsYB5nyUq0oykIuKQ3X8RrhqOLXjm9ySSThuPNP668QvK8C8vyTxZUs+lqgTvVm0wLoTvo5W3w==
+
 "@types/lcm@^0.0.0":
   version "0.0.0"
   resolved "https://registry.npmjs.org/@types/lcm/-/lcm-0.0.0.tgz"
@@ -113,6 +118,11 @@ agent-base@6:
   integrity sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==
   dependencies:
     debug "4"
+
+algebra.js@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/algebra.js/-/algebra.js-0.2.6.tgz#23aacc86f8634e4c206d56c8077ef220a6221c74"
+  integrity sha512-ogfp7ukWOqIgBGERLLhArKhPORnmvn1t0pXvPvtfe15qlDV9BaDwCArHh5RyoEj2GHUqYeCWfBzQ7oZRqQxKDw==
 
 ansi-styles@^3.2.1:
   version "3.2.1"

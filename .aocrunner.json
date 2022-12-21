@@ -290,27 +290,27 @@
           "-2022",
           "-2997"
         ],
-        "time": 198.256223
+        "time": 155.341252
       },
       "part2": {
         "solved": true,
         "result": "7496649006261",
         "attempts": [],
-        "time": 2871.732133
+        "time": 1571.079222
       }
     },
     {
       "part1": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "54703080378102",
         "attempts": [],
-        "time": null
+        "time": 110.066571
       },
       "part2": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "3952673930912",
         "attempts": [],
-        "time": null
+        "time": 18.530033
       }
     },
     {
