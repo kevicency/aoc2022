@@ -143,7 +143,7 @@ const moveToNextRegion = ({ region: { id, size }, dir, x, y }: State, cube: Cube
     case "2^":
       return { region: region(6), x, y: max, dir }
     case "3>":
-      return { region: region(2), x: y, y: max, dir: N } // foo
+      return { region: region(2), x: y, y: max, dir: N }
     case "3v":
       return { region: region(5), x, y: 0, dir }
     case "3<":
