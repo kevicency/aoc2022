@@ -1,5 +1,7 @@
 import { addIndex, map, split, tap } from "ramda"
 
+export type Print = typeof console.log
+
 export const log = tap(console.log)
 export const logJson = tap((x) => console.log(JSON.stringify(x, null, 2)))
 export const logM = (msg?: string) => tap((...args: any[]) => console.log(msg, ...args))
