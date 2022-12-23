@@ -5,13 +5,6 @@ import { log, splitLines, todo } from "../utils/index.js"
 
 const parseInput = pipe(splitLines, map(Number))
 
-const foo = (xs: number[]) => {
-  if (uniq(xs).length !== xs.length) {
-    throw new Error("Duplicate")
-  }
-  return xs
-}
-
 const mix =
   (times = 1) =>
   (xs: number[]) => {
@@ -34,7 +27,7 @@ const coords = (xs: number[]) =>
     return xs[(zi + i) % xs.length]
   })
 
-const part1 = pipe(parseInput, foo, mix(), coords, sum)
+const part1 = pipe(parseInput, mix(), coords, sum)
 
 const part2 = pipe(
   parseInput,

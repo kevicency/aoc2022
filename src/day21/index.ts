@@ -13,9 +13,7 @@ const parseMonkeys = (lines: string[]) =>
       const [name, job] = line.split(":").map((x) => x.trim())
       acc.monkeys.add(name)
       acc.jobs.push(`${name} = ${job}`)
-      if (/[-+*/]/.test(job)) {
-        job.match(/\w+/g)?.forEach((m) => acc.monkeys.add(m))
-      }
+      job.match(/[a-z]+/g)?.forEach((m) => acc.monkeys.add(m))
       return acc
     },
     { monkeys: new Set<string>(), jobs: [] as string[] },
@@ -42,9 +40,6 @@ const parseMonkeyExpressions = (lines: string[]) =>
     const match = job.match(/(\w+) ([+-/*]) (\w+)/)
     let expr: MonkeyExpr = match ? { lhs: match[1], op: match[2], rhs: match[3] } : +job
 
-    if (name === "root" && expr instanceof Object) {
-      expr.op = "="
-    }
     if (name === "humn") {
       expr = "x"
     }
@@ -73,7 +68,7 @@ const solveMonkeyExpressions = (lookup: Map<string, MonkeyExpr>) => {
   return equation.solveFor("x")?.toString()
 }
 
-const part2 = pipe(parseInput, parseMonkeyExpressions, solveMonkeyExpressions, log)
+const part2 = pipe(parseInput, parseMonkeyExpressions, solveMonkeyExpressions)
 
 run({
   part1: {

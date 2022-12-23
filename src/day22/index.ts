@@ -55,7 +55,7 @@ const move = (
   initial?: State, // just for logging
 ): State => {
   if (isNumber(cmd)) {
-    const [c, next] = cmd <= 0 ? [state.region.cells[state.y][state.x], state] : peek(state)
+    const [c, next] = cmd > 0 ? peek(state) : [state.region.cells[state.y][state.x], state]
 
     if (c === "#" || cmd === 0) {
       const curr = initial ?? state
