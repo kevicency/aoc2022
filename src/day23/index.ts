@@ -62,11 +62,13 @@ const step = (elves: Set<string>, gen: number) => {
       return acc
     }, new Map<string, string | null>())
 
-  const lookQueue = range(0, 4).map((i) => LOOK_DIRECTIONS[(i + gen) % LOOK_DIRECTIONS.length]!)
+  const lookDirectionQueue = range(0, 4).map(
+    (i) => LOOK_DIRECTIONS[(i + gen) % LOOK_DIRECTIONS.length]!,
+  )
   Array.from(proposals.keys())
     .map(xy)
     .forEach(([x, y]) => {
-      const dir = findFirstValidDir(lookQueue, x, y, elves)
+      const dir = findFirstValidDir(lookDirectionQueue, x, y, elves)
 
       if (dir !== null) {
         proposals.set(p(x, y), move(x, y, dir))
