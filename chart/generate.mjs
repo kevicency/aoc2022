@@ -35,9 +35,9 @@ await screenshot(
   {
     data: {
       columns: [
-        ["part1", 0, ...range(1, 25).map((day) => time1(day))],
-        ["part2", 0, ...range(1, 25).map((day) => time2(day))],
-        ["loc", 0, ...range(1, 25).map((day) => loc(day))],
+        ["part1", 0, ...range(1, 26).map((day) => time1(day))],
+        ["part2", 0, ...range(1, 26).map((day) => time2(day))],
+        ["loc", 0, ...range(1, 26).map((day) => loc(day))],
       ],
       types: {
         loc: "area",
